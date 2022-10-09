@@ -1,20 +1,21 @@
 import React from 'react';
 import "./Product.css";
-const Product = () => {
+const Product = ({title,image,price,rating}) => {
+   
     return (
     <div class="product">
         <div class="product__info">     
-        <p>The lean Startup</p>
+        <p> {title}</p>
         <p className="product__price">
           <small>$</small>
-          <strong>19.99</strong>
+          <strong>{price}</strong>
         </p>
         <div className="product__rating">
-        <p>🌟</p>
-        <p>🌟</p>
-            </div>
+          {Array(rating).fill().map((_id,i)=>( <span>🌟</span>))}
+          
         </div>
-        <img src="https://m.media-amazon.com/images/I/4115X1qmeoL._SX425_.jpg" alt="null" />
+        </div>
+        <img src={image} alt="null" />
 
 <button>Add to Basket</button>
     </div>
