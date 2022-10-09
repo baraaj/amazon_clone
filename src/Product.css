@@ -1,0 +1,15 @@
+.product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+    margin: 50px;
+}
+.product__info {
+
+}  
+.product__rating{
+     display: flex;
+     align-items: center;
+}
+ 

@@ -1,4 +1,6 @@
 import React from 'react'
+import Product from './Product';
+import './Home.css';
 
 export default function Home() {
   return (
