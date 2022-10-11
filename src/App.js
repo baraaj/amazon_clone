@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Header from './Header';
 import Home from './Home';
@@ -9,6 +9,10 @@ import Login from './Login';
 
 
 function App() {
+  useEffect(() => {
+    // will only run once when the app component loads...
+
+  }, []);
   return (
     <Router>
     <div className="app">
