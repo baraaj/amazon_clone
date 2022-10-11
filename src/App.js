@@ -12,13 +12,16 @@ function App() {
   return (
     <Router>
     <div className="app">
-    <Header />
+    {window.location.pathname !== "/login" ? <Header /> : null}{" "}
     <Routes>
-    <Route exact path="/login" element={<Login/>}>
+    <Route exact path="/login" element={<Login/>} >
          </Route>
-       <Route exact path="/checkout" element={<Checkout/>}>
+       
+       <Route exact path="/checkout"  element={<Checkout/>}>
+      
          </Route>
          <Route exact path="/" element={< Home />}>
+        
          </Route>
       
       
