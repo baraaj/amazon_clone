@@ -5,6 +5,10 @@ import CheckoutProduct from './CheckoutProduct';
 import { Link } from 'react-router-dom';
 export default function Payment() {
     const [{basket,user},dispatch]=useStateValue();
+    const handleSubmit=(e)=>{
+      e.preventDefault();
+
+    }
   return (
     <div className='payment'>
     <div className='payment__container'>
@@ -54,7 +58,12 @@ export default function Payment() {
             <div className="payment__details">
                     {/* Stripe magic will go */}
 
-                     
+                    <form onSubmit={handleSubmit}>
+
+
+
+
+                      </form>
                      
             </div>
         </div>
