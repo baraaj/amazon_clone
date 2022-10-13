@@ -10,7 +10,7 @@ import { useStateValue } from './StateProvider';
 import Payment from './Payment';
 import Order from './Order';
 import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
+import { Elements, useElements, useStripe } from "@stripe/react-stripe-js";
 
 const promise = loadStripe(
   "pk_test_51LsBjKGy7cHbJhlZA49fmnQZDvvMGPbNXyNxs4WLyv8LJ2lCHtxCG8uBpgmtXXjek7RCj4RoYWGAjqa2MOIWCwhP00nbBIXJxf"
@@ -20,6 +20,7 @@ const promise = loadStripe(
 
 function App() {
   const [{}, dispatch] = useStateValue();
+ 
   useEffect(() => {
     // will only run once when the app component loads...
 
