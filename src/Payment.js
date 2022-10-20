@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
 import { getBasketTotal } from "./reducer";
+import { axios } from 'axios';
  
 
 function Payment() {
@@ -23,7 +24,13 @@ function Payment() {
     const [clientSecret, setClientSecret] = useState(true);
 
      
+    useEffect(()=>{
+         const getClientSecret=async()=>{
+            const response=await axios.
+         }
 
+
+    },[basket])
     console.log('THE SECRET IS >>>', clientSecret)
     console.log('👱', user)
 
