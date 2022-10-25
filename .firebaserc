@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "challenge-90bac"
-  }
+    "default": "challenge-90bac",
+    "y": "challenge-90bac"
+  },
+  "targets": {},
+  "etags": {}
 }
