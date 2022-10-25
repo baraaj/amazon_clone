@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
 import { getBasketTotal } from "./reducer";
-import { axios } from 'axios';
+import axios from 'axios';
  
 
 function Payment() {
@@ -28,8 +28,9 @@ function Payment() {
          const getClientSecret=async()=>{
             const response=await axios({
                 method:'post',
-                url:`payments/create?total=${getBasketTotal(basket)}`
-            })
+                url:`payments/create?total=${getBasketTotal(basket)*100}`
+            });
+            setClientSecret(response.data.clientSecret);
          }
 
 
@@ -41,6 +42,20 @@ function Payment() {
         // do all the fancy stripe stuff...
         event.preventDefault();
         setProcessing(true);
+        const payload=await stripe.confirmCardPayment(clientSecret,
+            {
+                payment_method:{
+                    card:elements.getElement(CardElement)
+                }
+            }
+            ).then(({paymentIntent})=>{
+                setSucceeded(true);
+                setError(null);
+                setProcessing(true);
+
+                history('/orders');
+
+            })
 
         
     }
