@@ -52,6 +52,9 @@ function Payment() {
                 setSucceeded(true);
                 setError(null);
                 setProcessing(true);
+                dispatch({
+                    type: 'EMPTY_BASKET'
+                })
 
                 history('/orders');
 
