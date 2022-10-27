@@ -42,6 +42,9 @@ function Payment() {
         // do all the fancy stripe stuff...
         event.preventDefault();
         setProcessing(true);
+        
+       
+
         const payload=await stripe.confirmCardPayment(clientSecret,
             {
                 payment_method:{
@@ -61,7 +64,7 @@ function Payment() {
               })
                 setSucceeded(true);
                 setError(null);
-                setProcessing(true);
+                setProcessing(false);
                 dispatch({
                     type: 'EMPTY_BASKET'
                 })
@@ -143,7 +146,7 @@ function Payment() {
                                         thousandSeparator={true}
                                         prefix={"$"}
                                     />
-                                    <button disabled={processing || disabled || succeeded}>
+                                    <button  disabled={processing || disabled || succeeded}>
                                         <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
                                     </button>
                                 </div>
